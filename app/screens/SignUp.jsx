@@ -7,6 +7,7 @@ import {
   Pressable,
   Image,
   TextInput,
+  ScrollView
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import React from "react";
@@ -29,6 +30,7 @@ export default function SignUp() {
     setShowPassword(!showPassword);
   };
   return (
+    <ScrollView>
     <View style={styles.container}>
       <ImageBackground
         source={imageBG}
@@ -96,6 +98,7 @@ export default function SignUp() {
         </TouchableOpacity>
       </ImageBackground>
     </View>
+    </ScrollView>
   );
 }
 
