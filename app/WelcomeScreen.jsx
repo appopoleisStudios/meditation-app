@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     Pressable,
   } from "react-native";
-  
+  import { Link } from 'expo-router';
   import React from "react";
   import imageBG from "@/assets/images/Frame.png";
   
@@ -37,11 +37,12 @@ import {
             style={styles.GroupImg}
             source={require("@/assets/images/yogaLady.png")}
           />
-          <TouchableOpacity>
+          <Link href="/TopicScreen">
             <Pressable style={styles.button} onPress={()=>console.log("tap")}>
               <Text style={styles.buttonText}>GET STARTED</Text>
             </Pressable>
-          </TouchableOpacity>
+          </Link>
+          
           
         </View>
       </View>
@@ -51,7 +52,8 @@ import {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#8e97f3",
+      // backgroundColor: "#8e97f3",
+      backgroundColor: "#ffffff",
       alignItems: "center",
       minHeight: "150vh",
     },

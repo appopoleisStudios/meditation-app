@@ -8,9 +8,11 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
+import { Link } from 'expo-router';
 
 import React from "react";
 import imageBG from "@/assets/images/Frame.png";
+
 export default function HomeScreen() {
   
   return (
@@ -38,11 +40,13 @@ export default function HomeScreen() {
         <Text style={styles.paraText}>
           Thousand of people are using silent moon for small meditation
         </Text>
-        <TouchableOpacity>
+        <Link href="/SignUp">
+        
           <Pressable style={styles.button} onPress={()=>console.log("tap")}>
             <Text style={styles.buttonText}>SIGN UP</Text>
           </Pressable>
-        </TouchableOpacity>
+        
+        </Link>
         <Text style={styles.bottomText}>
           ALREADY HAVE AN ACCOUNT? LOG IN
         </Text>

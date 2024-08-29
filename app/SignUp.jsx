@@ -7,8 +7,9 @@ import {
   Pressable,
   Image,
   TextInput,
-  ScrollView
+  ScrollView,
 } from "react-native";
+import { Link } from "expo-router";
 import Checkbox from "expo-checkbox";
 import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -31,23 +32,24 @@ export default function SignUp() {
   };
   return (
     <ScrollView>
-    <View style={styles.container}>
-      <ImageBackground
-        source={imageBG}
-        resizeMode="cover"
-        style={styles.imageBG}
-      >
-        <View style={styles.backButton}>
-          <AntDesign name="arrowleft" size={24} color="#3F414E" />
-        </View>
-        <Text style={styles.headingText}>Create your account</Text>
-        <TouchableOpacity>
+      <View style={styles.container}>
+        <ImageBackground
+          source={imageBG}
+          resizeMode="cover"
+          style={styles.imageBG}
+        >
+          <Link href="/HomeScreen">
+            <View style={styles.backButton}>
+              <AntDesign name="arrowleft" size={24} color="#3F414E" />
+            </View>
+          </Link>
+          <Text style={styles.headingText}>Create your account</Text>
+
           <Pressable style={styles.button} onPress={() => console.log("tap")}>
             <FontAwesome name="facebook-f" size={24} color="#fff" />
             <Text style={styles.buttonText}>CONTINUE WITH FACEBOOK</Text>
           </Pressable>
-        </TouchableOpacity>
-        <TouchableOpacity>
+
           <Pressable
             style={styles.buttonSecond}
             onPress={() => console.log("tap")}
@@ -58,51 +60,55 @@ export default function SignUp() {
             />
             <Text style={styles.buttonSecondText}>CONTINUE WITH GOOGLE</Text>
           </Pressable>
-        </TouchableOpacity>
-        <Text style={styles.text2}>OR LOGIN WITH EMAIL</Text>
-        <TextInput placeholder="Username" style={styles.input} />
-        <TextInput placeholder="Email Address" style={styles.input} />
-        <View style={styles.input}>
-          <TextInput
-            secureTextEntry={!showPassword}
-            value={password}
-            onChangeText={setPassword}
-            
-            placeholder="Password"
+
+          <Text style={styles.text2}>OR LOGIN WITH EMAIL</Text>
+          <TextInput placeholder="Username" style={styles.input} />
+          <TextInput placeholder="Email Address" style={styles.input} />
+          <View style={styles.input}>
+            <TextInput
+              secureTextEntry={!showPassword}
+              value={password}
+              onChangeText={setPassword}
+              placeholder="Password"
               style={styles.inputPassword}
-          />
-          <MaterialCommunityIcons
-            name={showPassword ? "eye-off" : "eye"}
-            size={24}
-            color="#aaa"
-            style={styles.icon}
-            onPress={toggleShowPassword}
-          />
-        </View>
-        <View style={styles.policy}>
-          <Text style={styles.bottomText}>I have read the Privacy Policy</Text>
-          <Checkbox
-            //   style={styles.checkbox}
-            value={isChecked}
-            onValueChange={setChecked}
-            color={isChecked ? "#4630EB" : undefined}
-          />
-        </View>
-        <TouchableOpacity>
+            />
+            <MaterialCommunityIcons
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              color="#aaa"
+              style={styles.icon}
+              onPress={toggleShowPassword}
+            />
+          </View>
+          <View style={styles.policy}>
+            <Text style={styles.bottomText}>
+              I have read the Privacy Policy
+            </Text>
+            <Checkbox
+              //   style={styles.checkbox}
+              value={isChecked}
+              onValueChange={setChecked}
+              color={isChecked ? "#4630EB" : undefined}
+            />
+          </View>
+          <Link href="/WelcomeScreen">
+
           <Pressable
             style={styles.LoginButton}
-            onPress={() => console.log("tap")}
-          >
+            >
             <Text style={styles.LoginButtonText}>Get Started</Text>
           </Pressable>
-        </TouchableOpacity>
-      </ImageBackground>
-    </View>
+            </Link>
+        </ImageBackground>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+  },
   icon: {
     marginLeft: 10,
   },
@@ -122,8 +128,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 60,
     borderWidth: 1,
     borderColor: "#EBEAEC",
     borderRadius: "100%",
@@ -191,7 +197,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   inputPassword: {
     backgroundColor: "#F2F3F7",
@@ -204,7 +210,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   LoginButton: {
     backgroundColor: "#8E97FD",
