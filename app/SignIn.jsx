@@ -59,7 +59,9 @@ export default function SignIn() {
 }
 
 const styles = StyleSheet.create({
-    
+  container:{
+    backgroundColor: "#fff"
+  },
   imageBG: {
     width: "100%",
     paddingHorizontal: 10,

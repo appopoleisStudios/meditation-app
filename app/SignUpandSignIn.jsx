@@ -13,7 +13,7 @@ import { Link } from 'expo-router';
 import React from "react";
 import imageBG from "@/assets/images/Frame.png";
 
-export default function HomeScreen() {
+export default function SignUpandSignIn() {
   
   return (
     <View style={styles.container}>

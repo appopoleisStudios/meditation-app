@@ -52,8 +52,8 @@ import {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      // backgroundColor: "#8e97f3",
-      backgroundColor: "#ffffff",
+      backgroundColor: "#8e97f3",
+      // backgroundColor: "#ffffff",
       alignItems: "center",
       minHeight: "150vh",
     },

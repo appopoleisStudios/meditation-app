@@ -7,11 +7,12 @@ export default function RootLayout() {
         headerShown: false
       }}>
          <Stack.Screen name="(tabs)" />
-         <Stack.Screen name="HomeScreen" />
+         <Stack.Screen name="SignUpandSignIn" />
          <Stack.Screen name="SignUp" />
          <Stack.Screen name="SignIn" />
          <Stack.Screen name="WelcomeScreen" />
          <Stack.Screen name="TopicScreen" />
+         <Stack.Screen name="Reminders" />
     </Stack>
   );
 }
