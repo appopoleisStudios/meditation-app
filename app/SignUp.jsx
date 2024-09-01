@@ -3,13 +3,12 @@ import {
   Text,
   StyleSheet,
   ImageBackground,
-  TouchableOpacity,
   Pressable,
   Image,
   TextInput,
   ScrollView,
 } from "react-native";
-import { Link } from "expo-router";
+import { useNavigation } from "expo-router";
 import Checkbox from "expo-checkbox";
 import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -19,6 +18,8 @@ import { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 // import googleLogo from "@/assets/images/Google.png"
 export default function SignUp() {
+  const navigation = useNavigation()
+
   const [isChecked, setChecked] = useState(false);
   // State variable to hold the password
   const [password, setPassword] = useState("");
@@ -38,11 +39,11 @@ export default function SignUp() {
           resizeMode="cover"
           style={styles.imageBG}
         >
-          <Link href="/HomeScreen">
-            <View style={styles.backButton}>
+          
+            <Pressable onPress={() => navigation.navigate('SignUpandSignIn')} style={styles.backButton}>
               <AntDesign name="arrowleft" size={24} color="#3F414E" />
-            </View>
-          </Link>
+            </Pressable>
+          
           <Text style={styles.headingText}>Create your account</Text>
 
           <Pressable style={styles.button} onPress={() => console.log("tap")}>
@@ -91,14 +92,15 @@ export default function SignUp() {
               color={isChecked ? "#4630EB" : undefined}
             />
           </View>
-          <Link href="/WelcomeScreen">
+          
 
           <Pressable
             style={styles.LoginButton}
+            onPress={()=>navigation.navigate('WelcomeScreen')}
             >
             <Text style={styles.LoginButtonText}>Get Started</Text>
           </Pressable>
-            </Link>
+        
         </ImageBackground>
       </View>
     </ScrollView>
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: "relative",
-    right: 150,
+    right: "38%",
     flex: 1,
     margin: 20,
     paddingVertical: 10,

@@ -4,17 +4,19 @@ import {
     StyleSheet,
     Dimensions,
     Image,
-    ImageBackground,
-    TouchableOpacity,
     Pressable,
+    SafeAreaView
   } from "react-native";
-  import { Link } from 'expo-router';
+  // import { Link } from 'expo-router';
   import React from "react";
   import imageBG from "@/assets/images/Frame.png";
+import { useNavigation } from "expo-router";
   
   export default function WelcomeScreen() {
+    const navigation = useNavigation()
     
     return (
+      <SafeAreaView>
       <View style={styles.container}>
         
           <View style={styles.logo}>
@@ -37,15 +39,16 @@ import {
             style={styles.GroupImg}
             source={require("@/assets/images/yogaLady.png")}
           />
-          <Link href="/TopicScreen">
-            <Pressable style={styles.button} onPress={()=>console.log("tap")}>
+          
+            <Pressable style={styles.button} onPress={()=>navigation.navigate('TopicScreen')}>
               <Text style={styles.buttonText}>GET STARTED</Text>
             </Pressable>
-          </Link>
+     
           
           
         </View>
       </View>
+      </SafeAreaView>
     );
   }
   
@@ -55,7 +58,7 @@ import {
       backgroundColor: "#8e97f3",
       // backgroundColor: "#ffffff",
       alignItems: "center",
-      minHeight: "150vh",
+      minHeight: Dimensions.get('window').height,
     },
     imageBG: {
       width: "100%",
@@ -89,13 +92,13 @@ import {
       width: "100%",
     },
     headingText: {
-      fontSize: 35,
+      fontSize: 32,
       fontWeight: 600,
       color: "#FFECCC",
       lineHeight: 20
     },
     headingText2: {
-        fontSize: 35,
+        fontSize: 32,
         fontWeight: 400,
         color: "#FFECCC",
         marginBottom: 30
@@ -115,8 +118,8 @@ import {
     },
     button: {
       backgroundColor: "#FFF",
-      width: 340,
-      paddingVertical: 20,
+      width: "100%",
+      maxHeight: 63,
       borderRadius: 38,
       flex: 1,
       justifyContent: "center",

@@ -5,17 +5,20 @@ import {
   Dimensions,
   Image,
   ImageBackground,
-  TouchableOpacity,
   Pressable,
+  SafeAreaView,
 } from "react-native";
-import { Link } from 'expo-router';
+// import { Link } from 'expo-router';
+import { useNavigation } from "expo-router";
 
 import React from "react";
 import imageBG from "@/assets/images/Frame.png";
 
 export default function SignUpandSignIn() {
+  const navigation = useNavigation()
   
   return (
+    <SafeAreaView>
     <View style={styles.container}>
       <ImageBackground
         source={imageBG}
@@ -40,18 +43,17 @@ export default function SignUpandSignIn() {
         <Text style={styles.paraText}>
           Thousand of people are using silent moon for small meditation
         </Text>
-        <Link href="/SignUp">
         
-          <Pressable style={styles.button} onPress={()=>console.log("tap")}>
+          <Pressable style={styles.button} onPress={()=>navigation.navigate('SignUp')} >
             <Text style={styles.buttonText}>SIGN UP</Text>
           </Pressable>
         
-        </Link>
         <Text style={styles.bottomText}>
-          ALREADY HAVE AN ACCOUNT? LOG IN
+          ALREADY HAVE AN ACCOUNT? <Text style={styles.link} onPress={()=>navigation.navigate('SignIn')}>LOG IN</Text>
         </Text>
       </View>
     </View>
+    </SafeAreaView>
   );
 }
 
@@ -89,11 +91,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   GroupImg: {
-    marginTop: 100,
+    marginTop: "5vh",
     width: "100%",
   },
   headingText: {
-    fontSize: 35,
+    fontSize: 32,
     fontWeight: 700,
     color: "#3c3e3f",
   },
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
     color: "#787e80",
   },
   textBox: {
-    paddingTop: 100,
+    paddingTop: 120,
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 25,
@@ -112,20 +114,26 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#8E97FD",
-    width: 340,
-    paddingVertical: 20,
+    width: "100%",
+    // height: 10,
+    maxHeight: 63,
     borderRadius: 38,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 20,
+    marginTop: 50,
+  },
+  link:{
+    color: "#8E97FD"
   },
   buttonText: {
     fontWeight: "600",
+    fontSize: 14,
     color: "#fff",
     letterSpacing: 2,
   },
   bottomText: {
+    marginTop: 20,
     fontSize: 15,
     fontWeight: 500,
     color: "#787e80",

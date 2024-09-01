@@ -6,8 +6,10 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "expo-router";
 
 export default function TopicScreen() {
+  const navigation = useNavigation()
   return (
     <ScrollView>
       <ImageBackground
@@ -30,16 +32,16 @@ export default function TopicScreen() {
       </ImageBackground>
       <View style={styles.cardContainer}>
         <View style={{ width: "50%", gap: 30 }}>
-          <View style={styles.longCard}></View>
-          <View style={styles.smallCard}></View>
+          <View onPress={()=>navigation.navigate('(tabs)/home')} style={styles.longCard}></View>
+          <View onPress={()=>navigation.navigate('home')} style={styles.smallCard}></View>
           <View style={styles.longCard}></View>
           <View style={styles.smallCard}></View>
           <View style={styles.longCard}></View>
           <View style={styles.smallCard}></View>
         </View>
         <View style={{ width: "50%", gap: 30 }}>
-          <View style={styles.smallCard}></View>
-          <View style={styles.longCard}></View>
+          <View onPress={()=>navigation.navigate('home')} style={styles.smallCard}></View>
+          <View onPress={()=>navigation.navigate('home')} style={styles.longCard}></View>
           <View style={styles.smallCard}></View>
           <View style={styles.longCard}></View>
           <View style={styles.smallCard}></View>

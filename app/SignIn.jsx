@@ -6,32 +6,39 @@ import {
   TouchableOpacity,
   Pressable,
   Image,
-  TextInput
+  TextInput,
+  ScrollView,
+  SafeAreaView,
+  Dimensions
 } from "react-native";
 import React from "react";
+import { useNavigation } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import imageBG from "@/assets/images/Group 6800.png";
 // import googleLogo from "@/assets/images/Google.png"
 export default function SignIn() {
+  const navigation = useNavigation()
+
   return (
+    <SafeAreaView>
     <View style={styles.container}>
       <ImageBackground
         source={imageBG}
         resizeMode="cover"
         style={styles.imageBG}
       >
-        <View style={styles.backButton}>
+        <Pressable style={styles.backButton} onPress={() => navigation.navigate('SignUp')}>
           <AntDesign name="arrowleft" size={24} color="#3F414E" />
-        </View>
+        </Pressable>
         <Text style={styles.headingText}>Welcome Back!</Text>
-        <TouchableOpacity>
+       
           <Pressable style={styles.button} onPress={() => console.log("tap")}>
           <FontAwesome name="facebook-f" size={24} color="#fff" />
             <Text style={styles.buttonText}>CONTINUE WITH FACEBOOK</Text>
           </Pressable>
-        </TouchableOpacity>
-        <TouchableOpacity>
+        
+        
           <Pressable style={styles.buttonSecond} onPress={() => console.log("tap")}>
           <Image
             style={styles.logoImg}
@@ -39,28 +46,30 @@ export default function SignIn() {
           />
             <Text style={styles.buttonSecondText}>CONTINUE WITH GOOGLE</Text>
           </Pressable>
-        </TouchableOpacity>
+        
         <Text style={styles.text2} >OR LOGIN WITH EMAIL</Text>
         <TextInput placeholder="Email Address" style={styles.input}/>
         <TextInput placeholder="Password" style={styles.input}/>
-        <TouchableOpacity>
-          <Pressable style={styles.LoginButton} onPress={()=>console.log("tap")}>
+        
+          <Pressable style={styles.LoginButton} onPress={() => navigation.navigate('WelcomeScreen')}>
             <Text style={styles.LoginButtonText}>Login</Text>
           </Pressable>
-        </TouchableOpacity>
+        
         <Text style={styles.text3}>Forgot Password?</Text>
         <Text style={styles.bottomText}>
-          ALREADY HAVE AN ACCOUNT? LOG IN
+          DON'T HAVE AN ACCOUNT?<Text onPress={()=>navigation.navigate('SignUp')} style={styles.link}> SIGN UP</Text>
         </Text>
       </ImageBackground>
 
     </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    minHeight: Dimensions.get("window").height
   },
   imageBG: {
     width: "100%",
@@ -170,5 +179,9 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     color: "#787e80",
     marginTop: 30,
+    marginBottom: 20
+  },
+  link: {
+    color: "#8E97FD"
   }
 });
