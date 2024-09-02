@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    minHeight: Dimensions.get("screen").height,
+    minHeight: Dimensions.get("window").height,
   },
   imageBG: {
     width: "100%",
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#8E97FD",
     width: "100%",
-    // height: 10,
     maxHeight: 63,
     borderRadius: 38,
     flex: 1,

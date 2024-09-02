@@ -40,7 +40,7 @@ export default function SignUp() {
           style={styles.imageBG}
         >
           
-            <Pressable onPress={() => navigation.navigate('SignUpandSignIn')} style={styles.backButton}>
+            <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
               <AntDesign name="arrowleft" size={24} color="#3F414E" />
             </Pressable>
           

@@ -28,7 +28,7 @@ export default function SignIn() {
         resizeMode="cover"
         style={styles.imageBG}
       >
-        <Pressable style={styles.backButton} onPress={() => navigation.navigate('SignUp')}>
+        <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
           <AntDesign name="arrowleft" size={24} color="#3F414E" />
         </Pressable>
         <Text style={styles.headingText}>Welcome Back!</Text>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
-    width: 40,
+    width: 60,
     height: 40,
     borderWidth: 1,
     borderColor: "#EBEAEC",
